@@ -1,3 +1,3 @@
-# My Game is Cool!
+# I have done this before and am relearning"
 
-Make sure you give it a good description here...
+There will be great things from this folder in the future 
