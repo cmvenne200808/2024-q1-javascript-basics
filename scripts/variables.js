@@ -6,6 +6,7 @@ let intelligenceQuotient = 100;
 let firstName = "Calvin";
 let lastName = "Venne";
 
+
 // I can reassign a variable's value
 firstName = "John";
 lastName = "John";
@@ -34,10 +35,20 @@ let myPet = {
     type: "Tenrec",
     name: "Jerry",
     ageInHumanYears: 4,
-    color: "yellow & black"
+    color: "yellow & black",
+    favoriteFoods: [
+        "insects",
+        "berries",
+        "baby carrots"
+    ],
+    owner: {
+        firstName: "Calvin",
+        lastName: "Venne"
+    }
 };
 
 myPet.color = "navy blue";
+myPet.Color = "white";
 console.log("myPet looks like this", myPet);
 
 // arrays use square brachets
@@ -55,3 +66,5 @@ let favCandies = [
 console.log("my fav candies are:", favCandies);
 // arrays start counting from zero
 console.log("my fav candies at index 2 is:", favCandies[2]);
+
+favCandies.length;
