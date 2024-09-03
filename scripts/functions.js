@@ -1,20 +1,32 @@
 // @ts-check
 
+// add can be called before it is defined because it is hoisted 
+//to the global scope
+add(1, 2)
+
 let firstName = "John";
 
-let sayHi = function (firstName, age) {
+// add default parameter values
+let sayHi = function (firstName = "Captain Yes Name", age = 100000) {
     let greeting = `Greetings fine fellow. My name is ${firstName} and I am ${age} years old.`;
         // "Greetings. My name is " + firstName + " and I am " + age + "years old.";
     console.log(greeting);
 };
 
+debugger;
+
+// call with default params
+sayHi();
+// call with default age
+sayHi("Jake");
 sayHi("Calvin", 16);
 sayHi(firstName, 21);
 
 // console.log(firstName);
 
+// this function is hoisted to the global scope
 function add(a, b) {
-    let answer = a +b;
+    let answer = a + b;
     return answer;
 }
 
@@ -43,3 +55,4 @@ function wearBarneyShirt(person) {
 console.log(person);
 wearBarneyShirt(person);
 console.log(person);
+
