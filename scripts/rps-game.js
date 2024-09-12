@@ -1,6 +1,20 @@
 // @ts-check
 
+/** @type { HTMLElement } */
+//@ts-ignore we know player controls is not null
 let playerControls = document.getElementById("player-controls");
+
+//game-results
+/** @type { HTMLElement } */
+//@ts-ignore we know game reults header is not null
+let gameResultsHeader = document.getElementById("game-results");
+
+/** @type { HTMLElement } */
+//@ts-ignore we know game restart section is not null
+let gameRestartSection = document.getElementById("game-restart");
+
+
+gameResultsHeader.innerText = "Hey there!!";
 
 let isGameOver = false;
 
@@ -30,6 +44,7 @@ function determineOutcome(playerWeapon, computerWeapon) {
     }
 
     isGameOver = true;
+    showRestart();
 
     if(playerWeapon.beats === computerWeapon.type) {
         return `Player wins! ${playerWeapon.type} beats ${computerWeapon.type}`;
@@ -39,9 +54,9 @@ function determineOutcome(playerWeapon, computerWeapon) {
 }
 
 function playerControlHandler(e) {
-    // if(isGameOver) {
-    //     return;
-    // }
+    if(isGameOver) {
+        return;
+    }
 
     let weaponName = e.target.innerText;
     let playerWeapon = weapons.find(w => w.type === weaponName);
@@ -55,7 +70,29 @@ function playerControlHandler(e) {
 
     let result = determineOutcome(playerWeapon, computerWeapon);
 
+    gameResultsHeader.innerText = result;
     console.log(result);
 }
 
+function gameRestartHandler(e) {
+    if(e.target.id === "btn-restart") {
+        isGameOver = false;
+        showPlayerControls();
+        gameResultsHeader.innerText = "";
+    }
+
+}
+
+function showRestart() {
+    gameRestartSection.style.display = "initial";
+    playerControls.style.display = "none";
+}
+
+function showPlayerControls() {
+    gameRestartSection.style.display = "none";
+    playerControls.style.display = "initial";
+}
+
+
 playerControls?.addEventListener("click", playerControlHandler);
+gameRestartSection.addEventListener("click", gameRestartHandler);
