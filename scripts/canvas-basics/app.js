@@ -1,5 +1,6 @@
 //@ts-check
 import { SquareShape } from "./shapes/square.js";
+import { CircleShape } from "./shapes/circle.js";
 
 /** @type {HTMLCanvasElement} */
 //@ts-ignore canvas is an HTMLCanvasElement
@@ -11,9 +12,11 @@ const ctx = canvas.getContext("2d");
 
 let s1 = new SquareShape(0, 0, ctx, canvas);
 
+let c1 = new CircleShape(0, 0, ctx, canvas);
+
 let shapes = [];
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 2; i++) {
     shapes.push(new SquareShape(0, 0, ctx, canvas));
 }
 
